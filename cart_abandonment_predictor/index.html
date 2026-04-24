@@ -1,28 +1,1107 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>cart_abandonment_predictor</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="PkLa_ViOo6FAHpvh8SacceMb95o9tePRdrqLNBz9X1M" />
+<meta name="robots" content="index, follow">
+
+<title>Cart Abandonment Predictor – Free Checkout Audit & Recovery Tool</title>
+
+<meta name="description" content="Free cart abandonment predictor. Enter your checkout data and answer a friction audit to get your predicted abandonment rate, estimated revenue lost, and prioritized fixes ranked by impact. No login required.">
+
+<meta name="keywords" content="cart abandonment predictor, cart abandonment calculator, checkout abandonment tool, cart abandonment rate calculator, reduce cart abandonment, checkout friction analyzer, ecommerce cart abandonment tool, cart abandonment audit, predict cart abandonment, cart abandonment recovery">
+
+<link rel="canonical" href="https://franrivalbigprojects.github.io/cro-ux-tools/cart-abandonment-predictor/">
+
+<meta property="og:title" content="Cart Abandonment Predictor – Free Checkout Audit & Recovery Tool">
+<meta property="og:description" content="Predict your cart abandonment rate, estimate revenue lost, and get prioritized checkout fixes ranked by impact. Free, no login.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #fafaf9;
+  --white: #ffffff;
+  --surface: #f4f3f0;
+  --border: #e2ddd6;
+  --border-dark: #ccc5bc;
+  --ink: #1c1917;
+  --ink-muted: #6b6560;
+  --ink-dim: #b5ada5;
+  --accent: #e05c2a;
+  --accent-dim: rgba(224,92,42,0.08);
+  --accent-dim2: rgba(224,92,42,0.04);
+  --green: #15803d;
+  --green-bg: #f0faf4;
+  --green-border: #a8ddb8;
+  --yellow: #92610a;
+  --yellow-bg: #fdf8ee;
+  --yellow-border: #e8d090;
+  --red: #b91c1c;
+  --red-bg: #fff5f5;
+  --red-border: #fca5a5;
+  --blue: #1d4ed8;
+  --blue-bg: #eff6ff;
+  --blue-border: #bfdbfe;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter', sans-serif;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ─── HEADER ─── */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 13px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(224,92,42,0.2);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+.logo-text {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.logo-text strong { color: var(--accent); font-weight: 500; }
+
+/* ─── WRAPPER ─── */
+.wrapper { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* ─── HERO ─── */
+.hero {
+  padding: 44px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: clamp(22px, 3.2vw, 29px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+h1 em { font-style: normal; color: var(--accent); }
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--ink-muted);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.hero-sub strong { color: var(--ink); }
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border-dark);
+  color: var(--ink-muted);
+  background: var(--white);
+}
+
+.badge.accent {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: rgba(224,92,42,0.2);
+}
+
+/* ─── TOOL ─── */
+.tool-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.step-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* metrics inputs */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field-hint {
+  font-size: 11px;
+  color: var(--ink-dim);
+  margin-top: -3px;
+}
+
+.field input[type=number], .field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+
+.field input[type=number]:focus, .field select:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--white);
+}
+
+/* checklist */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+
+.check-item:hover { border-color: var(--border-dark); }
+.check-item.checked { border-color: var(--accent); background: var(--accent-dim); }
+
+.check-item input[type=checkbox] { display: none; }
+
+.check-box {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-dark);
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.check-item.checked .check-box {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  font-size: 10px;
+}
+
+.check-item.checked .check-box::after { content: '✓'; }
+
+.check-text {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+.check-item.checked .check-text { color: var(--ink); }
+
+.impact-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid;
+  flex-shrink: 0;
+  margin-left: auto;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.it-high { color: var(--red); background: var(--red-bg); border-color: var(--red-border); }
+.it-med { color: var(--yellow); background: var(--yellow-bg); border-color: var(--yellow-border); }
+.it-low { color: var(--ink-dim); background: var(--surface); border-color: var(--border); }
+
+/* CTA */
+.tool-cta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 12px 32px;
+  font-size: 15px;
+  font-family: var(--sans);
+  font-weight: 600;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  box-shadow: 0 2px 6px rgba(224,92,42,0.3);
+}
+
+.btn-primary:hover { opacity: 0.88; }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  padding: 11px 18px;
+  font-size: 13px;
+  font-family: var(--mono);
+  background: var(--white);
+  color: var(--ink-muted);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.btn-ghost:hover { color: var(--ink); border-color: var(--border-dark); }
+
+/* ─── RESULTS ─── */
+#resultsWrap { display: none; }
+
+/* score card */
+.score-hero {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.score-ring-wrap { text-align: center; }
+
+.score-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid;
+  margin: 0 auto 8px;
+}
+
+.score-ring .big-num {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.score-ring .big-pct {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.score-ring-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.score-meta h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.score-meta p {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.revenue-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rev-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 10px 14px;
+}
+
+.rev-stat .rv {
+  font-family: var(--mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.rev-stat .rl {
+  font-size: 11px;
+  color: var(--ink-dim);
+  margin-top: 1px;
+}
+
+/* fixes list */
+.fixes-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.fixes-head {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.fix-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.fix-item:last-child { border-bottom: none; }
+
+.fix-rank {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+  width: 22px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.fix-body strong {
+  font-size: 14px;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.fix-body p {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.fix-impact {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.impact-score {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.impact-effort {
+  font-size: 11px;
+  color: var(--ink-dim);
+  margin-top: 2px;
+}
+
+/* ─── DIVIDER ─── */
+hr.divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+/* ─── CONTENT ─── */
+.content-section { margin-bottom: 48px; }
+
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: block;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--surface);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+/* stat cards */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* dense block */
+.dense-block {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+}
+
+.dense-block p {
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.8;
+}
+
+.dense-block p:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.dense-block strong { color: var(--ink); }
+
+/* FAQ */
+.faq-list {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: var(--white);
+  border: none;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: var(--ink);
+  font-family: var(--sans);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.15s;
+  font-weight: 500;
+}
+
+.faq-q:hover { background: var(--accent-dim2); }
+
+.faq-arrow {
+  font-size: 11px;
+  color: var(--ink-dim);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  font-family: var(--mono);
+}
+
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+.faq-a {
+  display: none;
+  padding: 0 20px 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.75;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.faq-item.open .faq-a { display: block; }
+
+/* footer */
+footer {
+  border-top: 1px solid var(--border);
+  background: var(--white);
+  padding: 22px 0;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+footer p {
+  font-size: 11px;
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  margin: 0;
+}
+
+@media (max-width: 620px) {
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .checklist-grid { grid-template-columns: 1fr; }
+  .score-hero { grid-template-columns: 1fr; }
+  .hero { padding: 28px 0 20px; }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Cart Abandonment Predictor",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free cart abandonment predictor. Enter checkout metrics and answer a friction audit to get your predicted abandonment rate, estimated revenue lost per month, and prioritized checkout fixes ranked by impact and effort. No login required.",
+  "featureList": "Cart abandonment rate prediction, revenue loss estimation, checkout friction audit, prioritized fix recommendations, industry benchmark comparison, ecommerce checkout optimization"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a good cart abandonment rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The average cart abandonment rate is 70-75% according to Baymard Institute research. A rate below 60% is considered good. Best-in-class ecommerce stores achieve 50-55% abandonment rates. Industry varies significantly: luxury goods see rates above 80%, while digital products (no shipping friction) can achieve rates below 55%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What causes cart abandonment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The top causes of cart abandonment according to Baymard Institute research: unexpected extra costs at checkout (48%), required account creation (24%), slow delivery options (22%), distrust with credit card information (18%), complicated checkout process (17%), couldn't calculate total cost upfront (16%), website errors or crashes (13%), and insufficient payment methods (9%)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my cart abandonment rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cart abandonment rate = (1 - completed purchases / checkout sessions initiated) x 100. For example: 1000 checkout sessions, 280 completed purchases = (1 - 280/1000) x 100 = 72% abandonment rate. In Google Analytics 4, use the ecommerce funnel report comparing add_to_cart events to purchase events."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the fastest way to reduce cart abandonment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The highest-impact, lowest-effort improvements: show total cost (shipping, taxes) early before checkout, offer guest checkout without requiring account creation, display security badges and SSL indicators near payment fields, reduce checkout to 3 steps or fewer, and add progress indicators. These changes typically recover 5-15% of abandoned carts."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
+
 <body>
-<div class="container">
-<h2>Cart Abandonment Predictor</h2>
 
-<label>Steps in Flow</label>
-<input id="a" type="number">
+<header>
+  <div class="header-inner">
+    <span class="logo-mark">CRO</span>
+    <span class="logo-text"><strong>cart-abandonment</strong>-predictor</span>
+  </div>
+</header>
 
-<label>Trust Score (0-100)</label>
-<input id="b" type="number">
+<div class="wrapper">
 
-<label>Friction Level (0-100)</label>
-<input id="c" type="number">
+  <!-- HERO -->
 
-<button onclick="calc()">Analyze</button>
+  <section class="hero">
+    <p class="hero-eyebrow">Free eCommerce CRO Tool</p>
+    <h1><em>Cart Abandonment Predictor</em> —<br>Checkout Audit & Recovery Tool</h1>
+    <p class="hero-sub">
+      Enter your checkout metrics and answer a <strong>friction audit</strong> to get your predicted abandonment rate, estimated revenue lost per month, and <strong>prioritized fixes ranked by impact.</strong>
+    </p>
+    <div class="badges">
+      <span class="badge accent">Abandonment rate</span>
+      <span class="badge accent">Revenue impact</span>
+      <span class="badge">Friction audit</span>
+      <span class="badge">Prioritized fixes</span>
+      <span class="badge">Free · No login</span>
+    </div>
+  </section>
 
-<div id="result"></div>
+  <!-- TOOL -->
+
+  <div class="tool-card">
+
+
+<!-- Step 1 -->
+<p class="step-label">Step 1 — Your checkout metrics</p>
+<div class="metrics-grid">
+  <div class="field">
+    <label>Monthly visitors</label>
+    <p class="field-hint">Unique sessions/month</p>
+    <input type="number" id="visitors" placeholder="10000" min="0">
+  </div>
+  <div class="field">
+    <label>Add-to-cart rate (%)</label>
+    <p class="field-hint">% who add items to cart</p>
+    <input type="number" id="atcRate" placeholder="8" min="0" max="100" step="0.1">
+  </div>
+  <div class="field">
+    <label>Current conv. rate (%)</label>
+    <p class="field-hint">% who complete purchase</p>
+    <input type="number" id="convRate" placeholder="2.5" min="0" max="100" step="0.1">
+  </div>
+  <div class="field">
+    <label>Avg. order value ($)</label>
+    <p class="field-hint">Average purchase value</p>
+    <input type="number" id="aov" placeholder="75" min="0">
+  </div>
+  <div class="field">
+    <label>Checkout steps</label>
+    <p class="field-hint">Number of pages/screens</p>
+    <input type="number" id="steps" placeholder="4" min="1" max="10">
+  </div>
+  <div class="field">
+    <label>Industry</label>
+    <p class="field-hint">For benchmark comparison</p>
+    <select id="industry">
+      <option value="general">General eCommerce</option>
+      <option value="fashion">Fashion / Apparel</option>
+      <option value="electronics">Electronics</option>
+      <option value="luxury">Luxury / High-ticket</option>
+      <option value="digital">Digital / Downloads</option>
+      <option value="grocery">Grocery / FMCG</option>
+      <option value="saas">SaaS / Subscription</option>
+    </select>
+  </div>
 </div>
 
-<script src="script.js"></script>
+<!-- Step 2 -->
+<p class="step-label">Step 2 — Checkout friction audit (check all that apply to your store)</p>
+<div class="checklist-grid" id="checklistGrid"></div>
+
+<!-- CTA -->
+<div class="tool-cta">
+  <button class="btn-primary" onclick="runPredictor()">Predict Abandonment Rate</button>
+  <button class="btn-ghost" onclick="loadDemo()">Load Demo Data</button>
+</div>
+
+
+  </div>
+
+  <!-- RESULTS -->
+
+  <div id="resultsWrap">
+    <div class="score-hero" id="scoreHero"></div>
+    <div class="fixes-card" id="fixesCard"></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BENCHMARKS -->
+
+  <section class="content-section">
+    <span class="section-eyebrow">// Industry benchmarks</span>
+    <h3>Cart Abandonment Rate Benchmarks by Industry</h3>
+    <p>Average cart abandonment rates vary significantly by industry. Use these benchmarks to contextualize your predicted rate and set realistic improvement targets.</p>
+    <div class="stat-row">
+      <div class="stat-card"><span class="stat-num">84%</span><p class="stat-label">Luxury / High-ticket</p></div>
+      <div class="stat-card"><span class="stat-num">76%</span><p class="stat-label">Fashion / Apparel</p></div>
+      <div class="stat-card"><span class="stat-num">74%</span><p class="stat-label">General eCommerce</p></div>
+      <div class="stat-card"><span class="stat-num">72%</span><p class="stat-label">Electronics</p></div>
+      <div class="stat-card"><span class="stat-num">63%</span><p class="stat-label">Digital / Downloads</p></div>
+      <div class="stat-card"><span class="stat-num">58%</span><p class="stat-label">Grocery / FMCG</p></div>
+    </div>
+    <p style="margin-top:14px;font-size:13px;color:var(--ink-dim);">Source: Baymard Institute aggregate research (average of 44+ studies, 2024).</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHAT CAUSES ABANDONMENT -->
+
+  <section class="content-section">
+    <span class="section-eyebrow">// Root causes</span>
+    <h3>What Causes Cart Abandonment — And How to Fix Each</h3>
+    <div class="dense-block">
+      <p><strong>Unexpected extra costs (48% of abandonment)</strong><br>
+      Shipping costs, taxes, and fees appearing for the first time at checkout cause the largest share of abandonments. The fix is not free shipping — it's transparency. Show total estimated cost on the product page and in the cart before checkout starts. Stores that display shipping costs before checkout see 10-15% fewer abandonments than those that reveal costs at the final step.</p>
+
+
+  <p><strong>Forced account creation (24% of abandonment)</strong><br>
+  Requiring users to create an account before purchasing adds friction and delays. The fix: offer guest checkout with an optional account creation step after order completion ("Save your details for faster checkout next time?"). Allowing guest checkout typically recovers 3-5% of abandoned sessions from this cause alone.</p>
+
+  <p><strong>Complicated checkout process (17% of abandonment)</strong><br>
+  Long forms, unclear steps, and unnecessary fields increase cognitive load and drop-off. Best practice: 3 steps maximum (cart → shipping+payment → confirmation), auto-fill for returning users, address validation that reduces errors, and a visible progress indicator. Each additional checkout step adds approximately 5-8% to your abandonment rate.</p>
+
+  <p><strong>Lack of trust signals near payment (18% of abandonment)</strong><br>
+  Users evaluate trustworthiness at the payment step — when they're about to share card details. Display SSL/HTTPS badge, accepted payment method logos, a brief security statement, and customer review count near the payment form. Trust signals that are visible during the payment step specifically outperform those shown only on the homepage.</p>
+
+  <p><strong>Slow or expensive delivery (22% of abandonment)</strong><br>
+  Delivery speed and cost are evaluated before purchase decision. Show estimated delivery date (not just shipping time) early in the funnel. Offer multiple delivery tiers including a slower free option. Stores with 2-3 delivery options see lower abandonment than those with only one expensive option or one slow free option.</p>
+</div>
+
+  </section>
+
+  <hr class="divider">
+
+  <!-- FAQ -->
+
+  <section class="content-section">
+    <span class="section-eyebrow">// FAQ</span>
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is a good cart abandonment rate?<span class="faq-arrow">▾</span></button>
+        <div class="faq-a">The industry average is 70-75% (Baymard Institute). Below 60% is considered good. Best-in-class stores achieve 50-55%. Digital products and subscriptions typically see lower rates (55-65%) due to no shipping friction. Luxury goods often see 80%+ due to high price consideration time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How do I calculate cart abandonment rate?<span class="faq-arrow">▾</span></button>
+        <div class="faq-a">Cart abandonment rate = (1 - completed purchases / checkout sessions initiated) × 100. In Google Analytics 4, compare add_to_cart events to purchase events. In Shopify, check Online Store conversion funnel under Analytics. Note: cart abandonment (added to cart but didn't purchase) is different from checkout abandonment (started checkout but didn't complete).</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the fastest fix to reduce cart abandonment?<span class="faq-arrow">▾</span></button>
+        <div class="faq-a">The highest-ROI single change for most stores is enabling guest checkout — it removes the biggest friction point (forced account creation) affecting 24% of abandonment. The second fastest: showing shipping costs before checkout starts. Both can be implemented without redesigning the checkout flow.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How much revenue can I recover by reducing abandonment?<span class="faq-arrow">▾</span></button>
+        <div class="faq-a">Baymard Institute research suggests the average store can recover 35.26% of lost checkouts through better UX alone — without discounts or retargeting emails. For a store doing $100K/month at 70% abandonment, dropping to 60% represents approximately $14K/month in additional revenue from the same traffic.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>cart-abandonment-predictor · free · browser-only · no login</p>
+    <p>benchmark data: Baymard Institute · no data stored</p>
+  </div>
+</footer>
+
+<script>
+// ─── FRICTION CHECKLIST ───
+const FRICTION_ITEMS = [
+  { id: 'hidden_costs', text: 'Shipping/tax costs appear for first time at checkout', impact: 'high', weight: 14, fix: 'Show total cost estimate early', effort: 'Low', impactScore: '+8–14% recovery', detail: 'Add shipping estimator to cart page and product pages.' },
+  { id: 'forced_account', text: 'Require account creation before checkout', impact: 'high', weight: 10, fix: 'Add guest checkout option', effort: 'Low', impactScore: '+6–10% recovery', detail: 'Move account creation to post-order confirmation page.' },
+  { id: 'slow_checkout', text: 'Checkout has 5+ steps or pages', impact: 'high', weight: 9, fix: 'Consolidate to 3 steps maximum', effort: 'Med', impactScore: '+5–9% recovery', detail: 'Combine shipping and payment into one step.' },
+  { id: 'no_progress', text: 'No progress indicator during checkout', impact: 'med', weight: 5, fix: 'Add step progress bar', effort: 'Low', impactScore: '+3–5% recovery', detail: 'Show "Step 2 of 3" indicator prominently.' },
+  { id: 'no_trust', text: 'No security badges near payment field', impact: 'high', weight: 8, fix: 'Add SSL and payment trust signals', effort: 'Low', impactScore: '+4–8% recovery', detail: 'Display SSL badge, accepted cards, and "Secure checkout" text.' },
+  { id: 'slow_delivery', text: 'Only one delivery option (no free tier)', impact: 'med', weight: 7, fix: 'Offer free standard + paid fast delivery', effort: 'Med', impactScore: '+4–7% recovery', detail: 'Add free 5-7 day shipping option even if paid 2-day exists.' },
+  { id: 'no_guest', text: 'No guest checkout available', impact: 'high', weight: 11, fix: 'Enable guest checkout immediately', effort: 'Low', impactScore: '+5–11% recovery', detail: 'Critical: this alone recovers ~24% of forced-account abandonments.' },
+  { id: 'few_payment', text: 'Only credit cards accepted (no PayPal, Apple Pay)', impact: 'med', weight: 6, fix: 'Add PayPal, Apple Pay, Google Pay', effort: 'Med', impactScore: '+3–6% recovery', detail: '9% of abandonments cite insufficient payment methods.' },
+  { id: 'no_save', text: 'Cart doesn\'t persist between sessions', impact: 'med', weight: 5, fix: 'Enable cart persistence (30 days)', effort: 'Med', impactScore: '+2–5% recovery', detail: 'Many buyers intend to return but lose their cart.' },
+  { id: 'no_coupon', text: 'No coupon/discount code field visible', impact: 'low', weight: 3, fix: 'Add collapsible discount code field', effort: 'Low', impactScore: '+1–3% recovery', detail: 'Visible empty coupon box causes users to leave to find codes.' },
+  { id: 'no_returns', text: 'Return policy not visible during checkout', impact: 'med', weight: 4, fix: 'Show return policy summary in checkout', effort: 'Low', impactScore: '+2–4% recovery', detail: 'Uncertainty about returns increases abandonment, especially for first-time buyers.' },
+  { id: 'mobile_issues', text: 'Checkout not optimized for mobile', impact: 'high', weight: 9, fix: 'Audit and fix mobile checkout flow', effort: 'High', impactScore: '+5–9% recovery', detail: '60%+ of traffic is mobile. Tap targets, keyboard types, and form autofill matter.' },
+];
+
+const INDUSTRY_BENCHMARKS = {
+  general: 74, fashion: 76, electronics: 72, luxury: 84, digital: 63, grocery: 58, saas: 68
+};
+
+// Build checklist
+function buildChecklist() {
+  const grid = document.getElementById('checklistGrid');
+  grid.innerHTML = FRICTION_ITEMS.map(item => `
+    <label class="check-item" id="ci-${item.id}" onclick="toggleCheck('${item.id}')">
+      <input type="checkbox" id="cb-${item.id}">
+      <div class="check-box" id="box-${item.id}"></div>
+      <span class="check-text">${item.text}</span>
+      <span class="impact-tag it-${item.impact}">${item.impact}</span>
+    </label>
+  `).join('');
+}
+
+const checked = new Set();
+
+function toggleCheck(id) {
+  if (checked.has(id)) {
+    checked.delete(id);
+    document.getElementById('ci-' + id).classList.remove('checked');
+  } else {
+    checked.add(id);
+    document.getElementById('ci-' + id).classList.add('checked');
+  }
+}
+
+// ─── PREDICTOR ───
+function runPredictor() {
+  const visitors = parseFloat(document.getElementById('visitors').value) || 10000;
+  const atcRate = parseFloat(document.getElementById('atcRate').value) || 8;
+  const convRate = parseFloat(document.getElementById('convRate').value) || 2.5;
+  const aov = parseFloat(document.getElementById('aov').value) || 75;
+  const steps = parseInt(document.getElementById('steps').value) || 4;
+  const industry = document.getElementById('industry').value;
+
+  const benchmark = INDUSTRY_BENCHMARKS[industry] || 74;
+
+  // Calculate current cart abandonment
+  const cartSessions = visitors * (atcRate / 100);
+  const purchases = visitors * (convRate / 100);
+  const currentAbandonment = cartSessions > 0
+    ? Math.min(98, Math.round((1 - purchases / cartSessions) * 100))
+    : Math.round(benchmark);
+
+  // Friction penalty from checklist
+  let frictionPenalty = 0;
+  const activeItems = FRICTION_ITEMS.filter(f => checked.has(f.id));
+  activeItems.forEach(f => frictionPenalty += f.weight * 0.3);
+
+  // Predicted rate
+  const predicted = Math.min(97, Math.round(currentAbandonment + frictionPenalty));
+
+  // Revenue calculations
+  const currentRevenue = purchases * aov;
+  const recoveryPotential = cartSessions * 0.35 * aov; // Baymard: 35.26% recoverable
+  const lostRevenue = (cartSessions - purchases) * aov;
+
+  // Score (0-100, higher = better)
+  const score = Math.max(0, 100 - predicted);
+
+  // Color based on abandonment
+  const color = predicted > 80 ? '#b91c1c' : predicted > 70 ? '#d97706' : predicted > 55 ? '#ca8a04' : '#15803d';
+  const label = predicted > 80 ? 'Critical — Major friction detected' :
+    predicted > 70 ? 'High abandonment — Above average' :
+    predicted > 55 ? 'Average — Room to improve' :
+    'Good — Below industry average';
+
+  // Score hero
+  document.getElementById('scoreHero').innerHTML = `
+    <div class="score-ring-wrap">
+      <div class="score-ring" style="border-color:${color}">
+        <span class="big-num" style="color:${color}">${predicted}%</span>
+        <span class="big-pct" style="color:var(--ink-dim)">abandoned</span>
+      </div>
+      <p class="score-ring-label">Predicted rate</p>
+    </div>
+    <div class="score-meta">
+      <h2 style="color:${color}">${label}</h2>
+      <p>Industry benchmark for <strong>${industry}</strong>: <strong>${benchmark}%</strong>. Your predicted rate is <strong>${predicted - benchmark > 0 ? '+' + (predicted - benchmark) : predicted - benchmark}%</strong> vs industry average. ${activeItems.length > 0 ? `<strong>${activeItems.length} friction issue${activeItems.length > 1 ? 's' : ''}</strong> detected in your checkout.` : 'No friction issues checked — enter your current metrics above for personalized analysis.'}</p>
+      <div class="revenue-row">
+        <div class="rev-stat">
+          <div class="rv">$${Math.round(currentRevenue).toLocaleString()}</div>
+          <div class="rl">Current monthly revenue</div>
+        </div>
+        <div class="rev-stat">
+          <div class="rv">$${Math.round(lostRevenue).toLocaleString()}</div>
+          <div class="rl">Est. revenue lost to abandonment</div>
+        </div>
+        <div class="rev-stat">
+          <div class="rv" style="color:var(--green)">$${Math.round(recoveryPotential).toLocaleString()}</div>
+          <div class="rl">Est. recoverable (Baymard: 35%)</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Fixes — sort by weight desc
+  const sortedFixes = [...activeItems].sort((a, b) => b.weight - a.weight);
+
+  if (sortedFixes.length === 0) {
+    document.getElementById('fixesCard').innerHTML = `
+      <div class="fixes-head">// Prioritized fixes</div>
+      <div style="padding:20px;font-size:13px;color:var(--ink-dim);">No friction issues selected. Check the items in Step 2 that apply to your checkout to get prioritized recommendations.</div>
+    `;
+  } else {
+    let fixesHtml = `<div class="fixes-head">// Prioritized fixes — sorted by impact</div>`;
+    sortedFixes.forEach((f, i) => {
+      const impactColor = f.impact === 'high' ? 'var(--red)' : f.impact === 'med' ? 'var(--yellow)' : 'var(--ink-dim)';
+      fixesHtml += `
+        <div class="fix-item">
+          <div class="fix-rank">${i + 1}</div>
+          <div class="fix-body">
+            <strong>${f.fix}</strong>
+            <p>${f.detail}</p>
+          </div>
+          <div class="fix-impact">
+            <div class="impact-score" style="color:${impactColor}">${f.impactScore}</div>
+            <div class="impact-effort">Effort: ${f.effort}</div>
+          </div>
+        </div>
+      `;
+    });
+    document.getElementById('fixesCard').innerHTML = fixesHtml;
+  }
+
+  document.getElementById('resultsWrap').style.display = 'block';
+  document.getElementById('resultsWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Demo data
+function loadDemo() {
+  document.getElementById('visitors').value = 25000;
+  document.getElementById('atcRate').value = 9;
+  document.getElementById('convRate').value = 2.1;
+  document.getElementById('aov').value = 89;
+  document.getElementById('steps').value = 5;
+  document.getElementById('industry').value = 'fashion';
+
+  // Check several friction items
+  ['hidden_costs','forced_account','no_trust','slow_delivery','few_payment'].forEach(id => {
+    if (!checked.has(id)) toggleCheck(id);
+  });
+
+  setTimeout(runPredictor, 80);
+}
+
+function toggleFaq(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+// Init
+buildChecklist();
+</script>
+
 </body>
 </html>
