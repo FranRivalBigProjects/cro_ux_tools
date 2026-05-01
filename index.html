@@ -1,122 +1,1010 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="PkLa_ViOo6FAHpvh8SacceMb95o9tePRdrqLNBz9X1M" />
-    <title>CRO & UX Tools – Conversion Rate Optimization & User Experience Analysis</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="PkLa_ViOo6FAHpvh8SacceMb95o9tePRdrqLNBz9X1M" />
+<meta name="robots" content="index, follow">
 
-    <meta name="description" content="Optimize conversions with CRO and UX tools. Analyze checkout flow, landing pages, pricing pages, trust signals and reduce cart abandonment.">
+<title>Conversion Rate Optimization Tool UX – Free CRO &amp; UX Analyzer</title>
 
-    <meta name="keywords" content="conversion rate optimization tools, cart abandonment predictor, landing page score tool, checkout ux analysis, pricing page optimization, trust signal checker">
+<meta name="description" content="Free conversion rate optimization tool with UX analysis. Analyze landing pages, checkout flows, and pricing pages for CRO issues. Get actionable recommendations for reducing cart abandonment, improving CTAs, and increasing conversions.">
 
-    <link rel="canonical" href="/cro_ux_tools/">
+<meta name="keywords" content="conversion rate optimization tool ux, cro tool, ux cro, conversion rate optimization tool, cro ux tool, landing page cro analyzer, checkout ux tool, cart abandonment tool, cro checklist tool, conversion optimization ux analysis">
+
+<link rel="canonical" href="https://franrivalbigprojects.github.io/cro_ux_tools/">
+
+<meta property="og:title" content="Conversion Rate Optimization Tool UX – Free CRO Analyzer">
+<meta property="og:description" content="Analyze landing pages and checkout flows for CRO and UX issues. Get a conversion score and actionable recommendations. Free tool.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #040810;
+  --surface: #070e1a;
+  --surface2: #0c1428;
+  --border: #111e30;
+  --border2: #172840;
+  --cro: #f59e0b;
+  --cro-dim: rgba(245,158,11,0.12);
+  --cro-dim2: rgba(245,158,11,0.05);
+  --cro-glow: rgba(245,158,11,0.18);
+  --green: #22c55e;
+  --green-dim: rgba(34,197,94,0.1);
+  --green-dim2: rgba(34,197,94,0.05);
+  --red: #f87171;
+  --red-dim: rgba(248,113,113,0.1);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96,165,250,0.08);
+  --text: #b8cce0;
+  --text-muted: #3a5570;
+  --text-dim: #0f1e30;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter', sans-serif;
+  --r: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header {
+  border-bottom: 1px solid var(--border2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(4,8,16,0.97);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--cro);
+  background: var(--cro-dim2);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 3px;
+  padding: 3px 9px;
+}
+
+.logo-text {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.logo-text strong { color: var(--cro); font-weight: 500; }
+
+.wrapper {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  padding: 48px 0 30px;
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 24px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cro);
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 em { font-style: normal; color: var(--cro); }
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 620px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.hero-sub strong { color: var(--text); }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  border: 1px solid;
+}
+
+.pill-c  { color: var(--cro); background: var(--cro-dim2); border-color: rgba(245,158,11,0.3); }
+.pill-dim { color: var(--text-muted); border-color: var(--border2); }
+
+/* TOOL */
+.tool-shell {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.tool-topbar {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border2);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topbar-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.btn-sm {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid;
+  background: transparent;
+  transition: opacity 0.15s;
+}
+
+.btn-sm:hover { opacity: 0.75; }
+.btn-cro   { color: var(--cro); border-color: rgba(245,158,11,0.3); background: var(--cro-dim2); }
+.btn-ghost { color: var(--text-muted); border-color: var(--border2); }
+
+/* PAGE TYPE TABS */
+.type-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border2);
+  background: var(--bg);
+}
+
+.type-btn {
+  padding: 7px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  border-radius: 4px;
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.type-btn:hover { border-color: var(--cro); color: var(--text); }
+.type-btn.active { border-color: var(--cro); background: var(--cro-dim2); color: var(--cro); }
+
+/* CHECKLIST */
+.checklist-body { padding: 18px 20px; }
+
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.check-group {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  padding: 14px;
+}
+
+.cg-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--cro);
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.check-item:last-child { margin-bottom: 0; }
+
+.check-item input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--cro);
+}
+
+.check-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.check-label strong { color: var(--text); }
+
+/* SCORE AREA */
+.score-area {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.score-circle-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  padding: 20px;
+}
+
+.score-num {
+  font-family: var(--mono);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cro);
+  margin-bottom: 4px;
+}
+
+.score-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.score-grade {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.recs-area {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  padding: 14px;
+  overflow-y: auto;
+  max-height: 240px;
+}
+
+.rec-item {
+  display: flex;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border2);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.rec-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.rec-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.rec-text { color: var(--text-muted); line-height: 1.5; }
+.rec-text strong { color: var(--text); }
+
+.rec-placeholder {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ACTION BAR */
+.action-bar {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border2);
+  background: var(--surface2);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-analyze {
+  padding: 10px 26px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--cro);
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 16px var(--cro-glow);
+  transition: opacity 0.15s;
+}
+
+.btn-analyze:hover { opacity: 0.87; }
+
+/* SECTION */
+hr.divider { border: none; border-top: 1px solid var(--border2); margin: 50px 0; }
+.content-section { margin-bottom: 50px; }
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cro);
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.sec-rule { flex: 1; height: 1px; background: var(--border2); }
+
+p { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 10px; max-width: 820px; }
+p strong { color: var(--text); }
+
+code {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--surface2);
+  color: var(--cro);
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid var(--border2);
+}
+
+.dense-block {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  padding: 22px;
+  margin-top: 14px;
+}
+
+.dense-block p { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border2); max-width: none; }
+.dense-block p:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+.faq-list {
+  margin-top: 14px;
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.faq-item { border-bottom: 1px solid var(--border2); }
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: var(--surface);
+  border: none;
+  padding: 13px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: var(--sans);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.15s;
+}
+
+.faq-q:hover { background: var(--cro-dim2); }
+.faq-arrow { font-family: var(--mono); font-size: 11px; color: var(--text-dim); transition: transform 0.2s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+.faq-a {
+  display: none;
+  padding: 0 18px 13px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  border-top: 1px solid var(--border2);
+  background: var(--bg);
+}
+
+.faq-item.open .faq-a { display: block; }
+.faq-a code { color: var(--cro); background: var(--cro-dim2); }
+
+.subtools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.stl {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  padding: 12px 14px;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.15s;
+}
+
+.stl:hover { border-color: rgba(245,158,11,0.3); }
+.stl-eye  { font-family: var(--mono); font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+.stl-name { font-family: var(--mono); font-size: 12px; color: var(--cro); font-weight: 500; }
+
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 50px; }
+
+.tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  padding: 4px 12px;
+  cursor: default;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tag:hover { color: var(--cro); border-color: rgba(245,158,11,0.3); }
+
+footer { border-top: 1px solid var(--border2); padding: 20px 0; position: relative; z-index: 1; }
+.footer-inner {
+  max-width: 1060px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 8px;
+}
+footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin: 0; }
+
+@media (max-width: 640px) {
+  .check-grid { grid-template-columns: 1fr; }
+  .score-area { grid-template-columns: 1fr; }
+}
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Conversion Rate Optimization Tool UX","applicationCategory":"MarketingApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free CRO and UX analyzer. Check landing pages, checkout flows, and pricing pages for conversion rate optimization issues. Get a CRO score and actionable UX recommendations. Covers CTA, trust signals, form friction, page speed, and mobile UX."}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a conversion rate optimization (CRO) tool?","acceptedAnswer":{"@type":"Answer","text":"A CRO tool helps identify why visitors aren't converting and recommends changes to improve conversion rates. CRO tools range from heatmap tools (Hotjar, Microsoft Clarity) that show where users click and drop off, A/B testing platforms (VWO, Optimizely, Google Optimize) that test variations, session recording tools that capture user behavior, and checklist analyzers like this one that evaluate your page against CRO best practices for CTAs, trust signals, form friction, and mobile UX."}},{"@type":"Question","name":"How does UX affect conversion rate?","acceptedAnswer":{"@type":"Answer","text":"UX (User Experience) directly determines whether visitors complete desired actions. Poor UX reduces conversions through: friction in checkout (too many form fields, no guest checkout, unexpected costs), unclear CTAs (wrong placement, poor contrast, vague copy), slow page load (53% of mobile users abandon pages that take over 3 seconds), lack of trust signals (no SSL, no reviews, no money-back guarantee), and poor mobile experience. CRO and UX are inseparable — improving UX is the primary lever for improving conversion rates."}}]}
+</script>
+
 </head>
 
 <body>
-
 <header>
-    <h1>CRO & UX Tools – Optimize Conversions & User Experience</h1>
-    <p>
-        A powerful suite of <strong>CRO (conversion rate optimization) and UX tools</strong>
-        designed to help you <strong>increase conversions, reduce friction, and improve user journeys</strong>
-        across websites and e-commerce platforms.
-    </p>
+  <div class="header-inner">
+    <span class="logo-pill">CRO</span>
+    <span class="logo-text"><strong>conversion</strong>-rate-optimization &middot; ux</span>
+  </div>
 </header>
 
-<section>
-    <h2>🛒 Conversion & Funnel Optimization</h2>
-    <ul>
-        <li><a href="/cro_ux_tools/cart_abandonment_predictor/">Cart Abandonment Predictor</a> – Identify drop-off risks in checkout flows</li>
-        <li><a href="/cro_ux_tools/conversion_optimization_tool/">Conversion Optimization Tool</a> – Analyze and improve conversion funnels</li>
-    </ul>
-</section>
+<div class="wrapper">
 
-<section>
-    <h2>📦 Checkout & Pricing UX</h2>
-    <ul>
-        <li><a href="/cro_ux_tools/checkout_ux_analyzer/">Checkout UX Analyzer</a> – Detect friction points in checkout processes</li>
-        <li><a href="/cro_ux_tools/pricing_page_checker/">Pricing Page Checker</a> – Optimize pricing structure and clarity</li>
-    </ul>
-</section>
-
-<section>
-    <h2>📈 Landing Page Optimization</h2>
-    <ul>
-        <li><a href="/cro_ux_tools/landing_page_score/">Landing Page Score Tool</a> – Evaluate effectiveness and conversion potential</li>
-    </ul>
-</section>
-
-<section>
-    <h2>🔒 Trust & Credibility</h2>
-    <ul>
-        <li><a href="/cro_ux_tools/trust_signal_checker/">Trust Signal Checker</a> – Analyze credibility factors that impact conversions</li>
-    </ul>
-</section>
-
-<section>
-    <h2>📊 What Do These Tools Help You Improve?</h2>
-    <p>
-        These <strong>CRO tools</strong> help you:
+  <section class="hero">
+    <p class="hero-eyebrow">// CRO &amp; UX Analysis</p>
+    <h1>Free <em>Conversion Rate Optimization</em><br>Tool + UX Analyzer</h1>
+    <p class="hero-sub">
+      Check your <strong>landing page, checkout flow, or pricing page</strong> against CRO best practices. Get a conversion score and prioritized UX recommendations.
     </p>
-    <ul>
-        <li>Reduce cart abandonment rates</li>
-        <li>Improve checkout and payment flows</li>
-        <li>Increase landing page conversions</li>
-        <li>Optimize pricing strategies</li>
-        <li>Build trust and credibility with users</li>
-    </ul>
-</section>
+    <div class="pill-row">
+      <span class="pill pill-c">Landing Page</span>
+      <span class="pill pill-c">Checkout UX</span>
+      <span class="pill pill-dim">Pricing Page</span>
+      <span class="pill pill-dim">Trust Signals</span>
+      <span class="pill pill-dim">Mobile UX</span>
+    </div>
+  </section>
 
-<section>
-    <h2>🚀 Long-Tail Keywords & Search Intent</h2>
-    <ul>
-        <li>how to reduce cart abandonment ecommerce</li>
-        <li>checkout ux best practices conversion optimization</li>
-        <li>landing page conversion rate optimization tools</li>
-        <li>pricing page optimization strategies saas</li>
-        <li>trust signals ecommerce examples and tools</li>
-        <li>how to improve conversion rate website</li>
-    </ul>
-</section>
+  <!-- CRO ANALYZER TOOL -->
 
-<section>
-    <h2>🧠 Why CRO & UX Matter</h2>
-    <p>
-        Small improvements in user experience can lead to significant increases in revenue.
-        These tools help identify bottlenecks and opportunities across your funnel.
-    </p>
-</section>
+  <div class="tool-shell">
+    <div class="tool-topbar">
+      <span class="topbar-label">// CRO UX Analyzer</span>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-sm btn-cro" id="sampleBtn">Check Example</button>
+        <button class="btn-sm btn-ghost" id="clearBtn">Reset</button>
+      </div>
+    </div>
 
-<section>
-    <h2>❓ Frequently Asked Questions</h2>
 
-    <h3>What is conversion rate optimization (CRO)?</h3>
-    <p>
-        CRO is the process of improving your website to increase the percentage of visitors who take a desired action.
-    </p>
+<div class="type-row">
+  <button class="type-btn active" onclick="setType('landing',this)">Landing Page</button>
+  <button class="type-btn" onclick="setType('checkout',this)">Checkout Flow</button>
+  <button class="type-btn" onclick="setType('pricing',this)">Pricing Page</button>
+</div>
 
-    <h3>Why do users abandon carts?</h3>
-    <p>
-        Common reasons include high costs, complicated checkout, lack of trust, or poor UX.
-    </p>
+<div class="checklist-body">
+  <div class="check-grid" id="checkGrid"></div>
 
-    <h3>How can I improve my landing page?</h3>
-    <p>
-        Focus on clear messaging, strong CTAs, fast loading speed, and trust signals.
-    </p>
+  <div class="score-area" id="scoreArea" style="display:none;">
+    <div class="score-circle-wrap">
+      <div class="score-num" id="scoreNum">0</div>
+      <div class="score-label">CRO Score</div>
+      <div class="score-grade" id="scoreGrade"></div>
+    </div>
+    <div class="recs-area" id="recsArea">
+      <div class="rec-placeholder">Run the analyzer to see recommendations</div>
+    </div>
+  </div>
+</div>
 
-    <h3>Are these tools useful for SaaS?</h3>
-    <p>
-        Yes. CRO tools are critical for SaaS pricing pages, onboarding flows, and conversions.
-    </p>
-</section>
+<div class="action-bar">
+  <button class="btn-analyze" id="analyzeBtn">Analyze Conversion UX</button>
+  <span id="statusMsg" style="font-family:var(--mono);font-size:11px;color:var(--text-dim);"></span>
+</div>
+
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- GUIDE -->
+
+  <section class="content-section">
+    <div class="sec-head">
+      <span class="sec-label">CRO + UX — how they connect</span>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="dense-block">
+      <p><strong>The CTA is the highest-impact CRO element</strong><br>
+      Your call-to-action button drives the conversion. CRO best practices: use action verbs (<strong>Get Started</strong>, <strong>Start Free Trial</strong>, <strong>Buy Now</strong> — not "Submit" or "Click Here"). Place the primary CTA above the fold — visible without scrolling on desktop and mobile. Use a contrasting color that stands out from the page background. Test button copy: "Start Free Trial" consistently outperforms "Sign Up" by 15-25% in B2B SaaS. Repeat the CTA at the bottom for long pages. One primary CTA per page — multiple competing CTAs reduce conversion.</p>
+      <p><strong>Trust signals — the conversion multiplier</strong><br>
+      Trust signals reduce anxiety and increase conversion likelihood. High-impact trust elements: SSL badge / HTTPS lock icon (expected by users, absence is alarming). Social proof numbers (<strong>"2,000+ customers"</strong>, <strong>"4.8/5 stars"</strong>). Customer logos for B2B. Money-back guarantee reduces purchase risk. Security badges (Norton, McAfee) near payment forms. Real customer testimonials with photos and names. Trust signals near CTAs and on checkout pages have the highest conversion impact — don't bury them in footers.</p>
+      <p><strong>Checkout friction — why 70% of carts are abandoned</strong><br>
+      The average cart abandonment rate is ~70%. Top causes: unexpected costs at checkout (shipping, taxes revealed late) — always show total cost estimate early. Forced account creation — always offer guest checkout. Too many form fields — remove optional fields, use address autocomplete. Confusing navigation — remove header/footer during checkout, reduce exit opportunities. No progress indicator — users need to see "Step 2 of 3". Multiple payment options — PayPal, Apple Pay, Google Pay alongside cards. Each friction point removed can improve checkout conversion by 5-15%.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+
+  <section class="content-section">
+    <div class="sec-head">
+      <span class="sec-label">FAQ — CRO UX tools</span>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is a conversion rate optimization tool?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">A CRO tool identifies why visitors don't convert and recommends changes. Types: <strong>Heatmap tools</strong> (Hotjar, Clarity) — show click and scroll behavior. <strong>A/B testing</strong> (VWO, Optimizely) — test page variations. <strong>Session recording</strong> (FullStory, LogRocket) — watch user journeys. <strong>Checklist analyzers</strong> (this tool) — evaluate pages against CRO best practices for CTAs, trust signals, form friction, speed, and mobile UX. Most paid CRO tools cost $50-500/month — this checklist approach is a free starting point to identify quick wins before investing in tracking tools.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How does UX affect conversion rate?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">UX determines whether visitors complete desired actions. Bad UX reduces conversions through: friction in checkout (too many fields, no guest checkout, surprise costs), unclear CTAs (poor placement, wrong contrast), slow load time (53% of users abandon pages taking 3+ seconds), no trust signals, and poor mobile experience. A single form field reduction can increase conversions by 10-25%. Improving UX is the highest-ROI lever in CRO — the changes are often free to implement and compound over time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is a good conversion rate for a landing page?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">Benchmarks vary by industry and page type: <strong>E-commerce product page:</strong> 1-4%. <strong>Lead gen landing page:</strong> 5-15% (email capture). <strong>SaaS free trial:</strong> 2-5%. <strong>Pricing page to trial:</strong> 8-15%. <strong>Checkout completion:</strong> 30-60% of initiated checkouts. Top 10% performers are 3-5x the average. Context matters more than the number — if your cost per acquisition (CPA) is profitable, the conversion rate is "good". Focus on improving your own baseline rather than chasing industry averages.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What are the most impactful CRO changes?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">By impact: (1) <strong>CTA placement and copy</strong> — above fold, action verbs, contrasting color. (2) <strong>Page load speed</strong> — every 1s delay reduces conversions ~7%. (3) <strong>Guest checkout</strong> — mandatory account creation reduces checkout completion 20-30%. (4) <strong>Trust signals near CTA</strong> — reviews, guarantee, SSL badge. (5) <strong>Reducing form fields</strong> — remove every optional field. (6) <strong>Mobile UX</strong> — most traffic is mobile, most conversions still happen on desktop — fix the gap. (7) <strong>Pricing page clarity</strong> — show value, not just features.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="sec-head">
+      <span class="sec-label">CRO &amp; UX tools</span>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="subtools-grid">
+      <a href="cro_ux_tools/landing_page_score/" class="stl"><p class="stl-eye">landing //</p><span class="stl-name">Landing Page Score</span></a>
+      <a href="cro_ux_tools/checkout_ux_analyzer/" class="stl"><p class="stl-eye">checkout //</p><span class="stl-name">Checkout UX Analyzer</span></a>
+      <a href="cro_ux_tools/cart_abandonment_predictor/" class="stl"><p class="stl-eye">cart //</p><span class="stl-name">Cart Abandonment Predictor</span></a>
+      <a href="cro_ux_tools/pricing_page_checker/" class="stl"><p class="stl-eye">pricing //</p><span class="stl-name">Pricing Page Checker</span></a>
+      <a href="cro_ux_tools/trust_signal_checker/" class="stl"><p class="stl-eye">trust //</p><span class="stl-name">Trust Signal Checker</span></a>
+      <a href="cro_ux_tools/conversion_optimization_tool/" class="stl"><p class="stl-eye">cro //</p><span class="stl-name">Conversion Optimization Tool</span></a>
+    </div>
+  </section>
+
+  <div class="tag-cloud">
+    <span class="tag">conversion rate optimization tool ux</span>
+    <span class="tag">cro tool</span>
+    <span class="tag">ux cro</span>
+    <span class="tag">landing page cro analyzer</span>
+    <span class="tag">checkout ux tool</span>
+    <span class="tag">cart abandonment tool</span>
+    <span class="tag">cro checklist</span>
+    <span class="tag">trust signal checker</span>
+    <span class="tag">conversion optimization ux</span>
+    <span class="tag">pricing page cro</span>
+  </div>
+
+</div>
 
 <footer>
-    <p>
-        Optimize your website with advanced <strong>CRO and UX tools</strong> to increase conversions and revenue.
-    </p>
+  <div class="footer-inner">
+    <p>cro-ux-tools &middot; conversion rate optimization &middot; free &middot; github pages</p>
+    <p>landing page &middot; checkout ux &middot; trust signals &middot; cta analysis</p>
+  </div>
 </footer>
+
+<script>
+var currentType = 'landing';
+
+var CHECKLISTS = {
+  landing: [
+    {
+      group: 'Hero & CTA',
+      items: [
+        { id: 'cta_visible',    label: '<strong>Primary CTA</strong> is visible above the fold (no scrolling needed)', weight: 12 },
+        { id: 'cta_contrast',   label: 'CTA button has <strong>high contrast</strong> vs background color', weight: 10 },
+        { id: 'cta_action',     label: 'CTA uses an <strong>action verb</strong> (Get, Start, Buy — not Submit)', weight: 8 },
+        { id: 'headline_clear', label: '<strong>Headline</strong> clearly states the value proposition in under 8 words', weight: 10 },
+        { id: 'subhead',        label: 'Subheadline expands the value prop with a specific benefit', weight: 6 }
+      ]
+    },
+    {
+      group: 'Trust & Social Proof',
+      items: [
+        { id: 'social_proof',   label: '<strong>Social proof</strong> present: reviews, ratings, or customer count', weight: 10 },
+        { id: 'trust_badges',   label: '<strong>Trust badges</strong> near CTA: SSL, guarantee, security seal', weight: 8 },
+        { id: 'testimonials',   label: 'Testimonials with <strong>real names and photos</strong> (not generic)', weight: 7 },
+        { id: 'no_risk',        label: '<strong>Risk reducer</strong> visible: money-back guarantee, free trial, no CC', weight: 8 }
+      ]
+    },
+    {
+      group: 'UX & Friction',
+      items: [
+        { id: 'load_fast',     label: 'Page loads in <strong>under 3 seconds</strong> (test with PageSpeed Insights)', weight: 10 },
+        { id: 'mobile_ok',     label: '<strong>Mobile layout</strong> works: CTA visible, text readable without zoom', weight: 9 },
+        { id: 'single_cta',    label: 'Page has <strong>one primary CTA</strong> — no competing actions or distractions', weight: 7 },
+        { id: 'no_nav',        label: 'Navigation is <strong>removed or minimal</strong> — no exit ramps on landing page', weight: 5 }
+      ]
+    },
+    {
+      group: 'Copy & Messaging',
+      items: [
+        { id: 'benefit_copy',  label: '<strong>Benefits</strong> emphasized over features (what user gets, not what it does)', weight: 7 },
+        { id: 'above_fold',    label: 'Form or CTA is <strong>above the fold</strong> with context', weight: 8 },
+        { id: 'urgency',       label: '<strong>Urgency or scarcity</strong> element present (limited time, limited spots)', weight: 5 }
+      ]
+    }
+  ],
+
+  checkout: [
+    {
+      group: 'Checkout Flow',
+      items: [
+        { id: 'guest',         label: '<strong>Guest checkout</strong> option available — no forced account creation', weight: 15 },
+        { id: 'steps',         label: '<strong>Progress indicator</strong> shows current step (Step 2 of 3)', weight: 8 },
+        { id: 'autofill',      label: 'Address <strong>autocomplete</strong> / autofill supported', weight: 7 },
+        { id: 'few_fields',    label: 'Form has <strong>minimum required fields</strong> only (no optional fields)', weight: 10 }
+      ]
+    },
+    {
+      group: 'Cost Transparency',
+      items: [
+        { id: 'total_early',   label: '<strong>Total cost</strong> (with shipping + tax) shown early — no surprise at end', weight: 14 },
+        { id: 'shipping_clear',label: 'Shipping cost / free shipping threshold <strong>shown early</strong>', weight: 8 },
+        { id: 'payment_trust', label: 'Security badges <strong>near payment form</strong> (SSL, card icons)', weight: 7 }
+      ]
+    },
+    {
+      group: 'Payment UX',
+      items: [
+        { id: 'multi_payment', label: '<strong>Multiple payment options</strong>: PayPal, Apple Pay, Google Pay + cards', weight: 10 },
+        { id: 'no_nav_check',  label: 'Header/nav <strong>removed during checkout</strong> — no exit distractions', weight: 6 },
+        { id: 'error_inline',  label: 'Form validation shows <strong>inline errors</strong> next to the field (not page reload)', weight: 8 },
+        { id: 'save_cart',     label: 'Cart contents <strong>persist</strong> across sessions (cookie/localStorage)', weight: 7 }
+      ]
+    }
+  ],
+
+  pricing: [
+    {
+      group: 'Pricing Structure',
+      items: [
+        { id: 'plans_clear',   label: '<strong>3 or fewer plans</strong> — too many options causes decision paralysis', weight: 10 },
+        { id: 'recommended',   label: 'One plan visually <strong>highlighted as recommended</strong> (anchors decision)', weight: 12 },
+        { id: 'annual_toggle', label: '<strong>Annual/monthly toggle</strong> with savings amount shown (e.g., "Save 20%")', weight: 8 },
+        { id: 'price_clear',   label: 'Price <strong>per user / per month</strong> shown clearly with billing frequency', weight: 9 }
+      ]
+    },
+    {
+      group: 'Value & Trust',
+      items: [
+        { id: 'cta_plan',      label: 'Each plan has its own <strong>specific CTA</strong> (not generic "Sign Up")', weight: 8 },
+        { id: 'free_trial',    label: '<strong>Free trial or freemium</strong> option reduces commitment barrier', weight: 10 },
+        { id: 'guarantee',     label: '<strong>Money-back guarantee</strong> or trial cancellation policy stated', weight: 9 },
+        { id: 'faq_objections',label: 'FAQ section addresses common <strong>purchase objections</strong>', weight: 6 }
+      ]
+    },
+    {
+      group: 'Comparison & Clarity',
+      items: [
+        { id: 'feature_table', label: '<strong>Feature comparison table</strong> lets users identify right plan', weight: 7 },
+        { id: 'social_logos',  label: '<strong>Customer logos</strong> or case studies near pricing (B2B social proof)', weight: 7 },
+        { id: 'no_jargon',     label: 'Feature names use <strong>plain language</strong> — no internal jargon', weight: 5 },
+        { id: 'mobile_price',  label: 'Pricing table is <strong>usable on mobile</strong> (horizontal scroll or stacked)', weight: 9 }
+      ]
+    }
+  ]
+};
+
+var RECS = {
+  landing: {
+    cta_visible:    { fix: 'Move CTA above the fold. Users should see it without scrolling on desktop and mobile. This single change can increase conversions 10-20%.' },
+    cta_contrast:   { fix: 'Increase CTA button contrast. Use a color not used elsewhere on the page. Orange, green, or red on dark backgrounds perform well.' },
+    cta_action:     { fix: 'Rewrite CTA copy with action verbs: "Get Free Trial", "Start Saving", "Download Now". Avoid "Submit", "Continue", "Click Here".' },
+    headline_clear: { fix: 'Simplify your headline to one clear benefit in under 8 words. "Grow Revenue Faster with Automated Outreach" beats "Our Platform Empowers Teams to Achieve Results".' },
+    subhead:        { fix: 'Add a subheadline that expands the value prop with a specific benefit or number: "Join 5,000 teams who increased pipeline by 40%".' },
+    social_proof:   { fix: 'Add social proof near your CTA: star rating, customer count, or a 1-line testimonial. "Trusted by 12,000+ companies" reduces purchase anxiety.' },
+    trust_badges:   { fix: 'Place trust badges (SSL, money-back guarantee, security seal) directly next to or below your CTA button.' },
+    testimonials:   { fix: 'Replace generic quotes with testimonials that include full name, company, photo, and a specific result: "We reduced churn by 30% in 90 days".' },
+    no_risk:        { fix: 'Add a risk reducer near your CTA: "30-day money-back guarantee", "Cancel anytime", "No credit card required". This alone can lift conversions 15-30%.' },
+    load_fast:      { fix: 'Test page speed at pagespeed.web.dev. Compress images (WebP format), eliminate render-blocking scripts, and use a CDN. Every 1s delay reduces conversions ~7%.' },
+    mobile_ok:      { fix: 'Test on a real mobile device. Ensure the CTA is tappable (min 44x44px), text is readable at 16px, and no horizontal scroll.' },
+    single_cta:     { fix: 'Remove secondary CTAs or navigation links that compete with your primary action. Decision paralysis reduces conversions — one page, one goal.' },
+    no_nav:         { fix: 'Remove or minimize navigation on dedicated landing pages. Users coming from ads should not be able to easily leave to browse your site.' },
+    benefit_copy:   { fix: 'Rewrite feature bullets as benefits: "256-bit encryption" becomes "Your data is bank-level secure". What does the user get, feel, or avoid?' },
+    above_fold:     { fix: 'Move form fields above the fold. If you require information, ask for less (email only first, then more after signup).' },
+    urgency:        { fix: 'Add authentic urgency: "Limited beta spots", "Offer ends Friday", countdown timer. Ensure urgency is real — fake countdowns harm trust.' }
+  },
+  checkout: {
+    guest:          { fix: 'Add guest checkout. Mandatory account creation is the #1 cause of checkout abandonment. Offer account creation AFTER purchase completion.' },
+    steps:          { fix: 'Add a progress indicator: "Step 2 of 3 — Payment". Users are more likely to complete when they know the end is near.' },
+    autofill:       { fix: 'Enable browser autofill by using standard HTML attributes: autocomplete="address-line1", name="email", etc. This reduces input time significantly.' },
+    few_fields:     { fix: 'Audit every form field. Remove all optional fields. Phone number, birthday, company name — ask only if truly required for fulfillment.' },
+    total_early:    { fix: 'Show total cost including shipping and tax as early as possible — on the cart page or product page. Surprise costs at checkout are the #2 abandonment reason.' },
+    shipping_clear: { fix: 'Show free shipping threshold on product pages and cart: "Add $12 more for free shipping". This increases average order value AND reduces abandonment.' },
+    payment_trust:  { fix: 'Add security badges and card icons directly next to or below the payment form. "256-bit SSL Secure Checkout" with lock icon reduces payment anxiety.' },
+    multi_payment:  { fix: 'Add PayPal, Apple Pay, and Google Pay. Users who use these services convert at 2-4x the rate of manual card entry. Setup is typically a few hours.' },
+    no_nav_check:   { fix: 'Remove header navigation during checkout. Keep only logo + progress indicator + support link. Exit ramps during checkout cost conversions.' },
+    error_inline:   { fix: 'Show validation errors inline next to each field immediately on blur, not on form submit. "Invalid email" next to the email field vs a page reload with errors.' },
+    save_cart:      { fix: 'Persist cart contents for logged-in users and in localStorage for guests. Users frequently return to complete purchases — empty cart loses them.' }
+  },
+  pricing: {
+    plans_clear:    { fix: 'Reduce to 3 plans max: Starter, Pro, Enterprise. Research shows 3 options maximize revenue — fewer causes under-monetization, more causes paralysis.' },
+    recommended:    { fix: 'Highlight your most profitable plan as "Most Popular" or "Recommended". This visual anchor increases selection of that plan by 20-40%.' },
+    annual_toggle:  { fix: 'Add annual/monthly toggle with the annual savings prominently displayed ("Save $120/year"). Annual plans improve cash flow and reduce churn.' },
+    price_clear:    { fix: 'Show "$49/month, billed annually" not just "$49/mo" — hidden annual commitment creates distrust. Transparency improves conversion and reduces refunds.' },
+    cta_plan:       { fix: 'Each plan needs a specific CTA. "Start Pro Trial", "Get Starter Free", "Contact Sales". Generic "Sign Up" buttons reduce conversion.' },
+    free_trial:     { fix: 'Add a free trial or freemium tier. SaaS companies with trials convert at 2-3x vs non-trial. "Try free for 14 days" reduces commitment barrier.' },
+    guarantee:      { fix: 'Add a money-back guarantee period (30 days minimum). Research shows this increases purchase rates more than it increases refund rates.' },
+    faq_objections: { fix: 'Add FAQ section addressing: "Can I cancel anytime?", "Do you offer discounts for non-profits?", "What happens to my data if I cancel?".' },
+    feature_table:  { fix: 'Add a feature comparison table below the plan cards. Users need to verify specific features before buying — without a table they go to competitors.' },
+    social_logos:   { fix: 'Add 6-8 recognizable customer logos near pricing. "Trusted by companies like Stripe, Notion, and Figma" dramatically increases B2B conversion.' },
+    no_jargon:      { fix: 'Replace internal jargon with plain language: "SSO" becomes "Single sign-on (login once for all apps)", "Advanced API rate limits" needs context.' },
+    mobile_price:   { fix: 'Test pricing table on mobile. Use horizontal scroll with snap points, or stack plans vertically. Most users compare plans on mobile before buying on desktop.' }
+  }
+};
+
+var checkStates = {};
+
+function el(tag, cls) {
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  return e;
+}
+
+function renderChecklist(type) {
+  var grid = document.getElementById('checkGrid');
+  grid.innerHTML = '';
+  checkStates = {};
+
+  var list = CHECKLISTS[type];
+  list.forEach(function(group, gi) {
+    var box = el('div', 'check-group');
+    var title = el('div', 'cg-title');
+    title.textContent = group.group;
+    box.appendChild(title);
+
+    group.items.forEach(function(item) {
+      checkStates[item.id] = false;
+      var row = el('div', 'check-item');
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.id = 'cb_' + item.id;
+      cb.dataset.id = item.id;
+      cb.addEventListener('change', function() {
+        checkStates[item.id] = this.checked;
+      });
+      var lbl = el('label', 'check-label');
+      lbl.htmlFor = 'cb_' + item.id;
+      lbl.innerHTML = item.label;
+      row.appendChild(cb);
+      row.appendChild(lbl);
+      box.appendChild(row);
+    });
+    grid.appendChild(box);
+  });
+
+  document.getElementById('scoreArea').style.display = 'none';
+}
+
+function setType(type, btn) {
+  currentType = type;
+  document.querySelectorAll('.type-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderChecklist(type);
+}
+
+function analyze() {
+  var list = CHECKLISTS[currentType];
+  var totalWeight = 0;
+  var earnedWeight = 0;
+  var missing = [];
+
+  list.forEach(function(group) {
+    group.items.forEach(function(item) {
+      totalWeight += item.weight;
+      if (checkStates[item.id]) {
+        earnedWeight += item.weight;
+      } else {
+        missing.push({ id: item.id, weight: item.weight, label: item.label });
+      }
+    });
+  });
+
+  var score = Math.round((earnedWeight / totalWeight) * 100);
+  var grade, gradeColor;
+
+  if (score >= 85) { grade = 'Excellent'; gradeColor = 'var(--green)'; }
+  else if (score >= 70) { grade = 'Good';      gradeColor = 'var(--cro)'; }
+  else if (score >= 55) { grade = 'Fair';       gradeColor = '#fb923c'; }
+  else if (score >= 35) { grade = 'Poor';       gradeColor = var_or_color('--red'); }
+  else { grade = 'Critical'; gradeColor = 'var(--red)'; }
+
+  document.getElementById('scoreNum').textContent = score;
+  document.getElementById('scoreNum').style.color = gradeColor;
+  document.getElementById('scoreGrade').textContent = grade;
+  document.getElementById('scoreGrade').style.color = gradeColor;
+  document.getElementById('scoreArea').style.display = 'grid';
+
+  // Recommendations — sorted by weight descending
+  missing.sort(function(a, b) { return b.weight - a.weight; });
+  var recsArea = document.getElementById('recsArea');
+  recsArea.innerHTML = '';
+
+  if (missing.length === 0) {
+    var p = el('div', 'rec-placeholder');
+    p.textContent = 'All checks passed. Your page scores ' + score + '/100.';
+    recsArea.appendChild(p);
+  } else {
+    var recs = RECS[currentType];
+    missing.slice(0, 8).forEach(function(item) {
+      var rec = recs[item.id];
+      if (!rec) return;
+      var row = el('div', 'rec-item');
+      var dot = el('div', 'rec-dot');
+      dot.style.background = item.weight >= 10 ? 'var(--red)' : item.weight >= 7 ? 'var(--cro)' : 'var(--blue)';
+      var txt = el('div', 'rec-text');
+      txt.innerHTML = '<strong>+' + item.weight + 'pts:</strong> ' + rec.fix;
+      row.appendChild(dot);
+      row.appendChild(txt);
+      recsArea.appendChild(row);
+    });
+  }
+
+  document.getElementById('statusMsg').textContent = score + '/100 — ' + missing.length + ' improvement(s) found.';
+  document.getElementById('statusMsg').style.color = score >= 70 ? 'var(--green)' : score >= 50 ? 'var(--cro)' : 'var(--red)';
+}
+
+function var_or_color(v) {
+  return 'var(' + v + ')';
+}
+
+function loadSample() {
+  // Check ~60% of items to show a realistic mid-score
+  var list = CHECKLISTS[currentType];
+  var count = 0;
+  var total = 0;
+  list.forEach(function(g) { total += g.items.length; });
+  var toCheck = Math.floor(total * 0.6);
+
+  list.forEach(function(group) {
+    group.items.forEach(function(item, idx) {
+      if (count < toCheck) {
+        var cb = document.getElementById('cb_' + item.id);
+        if (cb) { cb.checked = true; checkStates[item.id] = true; count++; }
+      }
+    });
+  });
+
+  analyze();
+}
+
+function resetAll() {
+  renderChecklist(currentType);
+}
+
+function toggleFaq(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderChecklist('landing');
+  document.getElementById('analyzeBtn').addEventListener('click', analyze);
+  document.getElementById('sampleBtn').addEventListener('click', loadSample);
+  document.getElementById('clearBtn').addEventListener('click', resetAll);
+});
+</script>
 
 </body>
 </html>
